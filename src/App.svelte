@@ -1,8 +1,18 @@
 <script>
+  import About from './components/About.svelte';
+  import Text from './components/Text.svelte';
+  import Person from './components/Person.svelte';
+
   export let name;
   export let lastName;
 
   let svelteLogo = 'https://arepa.s3.amazonaws.com/svelte-logo.png';
+
+  const data = {
+    name: 'Michael',
+    lastName: 'Sornoza',
+    age: 20,
+  };
 </script>
 
 <style>
@@ -34,11 +44,6 @@
       max-width: none;
     }
   }
-  p {
-    color: var(--theme-color);
-    font-size: 22px;
-  }
-
   main img {
     width: 30%;
   }
@@ -46,11 +51,8 @@
 
 <main>
   <h1>Hello {name} {lastName}!</h1>
-  <p>Frontend Developer</p>
+  <About />
+  <Text anotherText="Hola soy el texto" />
+  <Person {...data} />
   <img src={svelteLogo} alt="svelte" />
-  <!-- <p>
-    Visit the
-    <a href="https://svelte.dev/tutorial">Svelte tutorial</a>
-    to learn how to build Svelte apps.
-  </p> -->
 </main>
